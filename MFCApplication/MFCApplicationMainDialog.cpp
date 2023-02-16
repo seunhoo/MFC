@@ -8,7 +8,7 @@
 
 #include "DrawingLotsDlg.h"
 #include "AutoClicker.h"
-
+#include "AimTracking.h"
 
 // MFCApplicationMainDialog 대화 상자
 
@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(MFCApplicationMainDialog, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &MFCApplicationMainDialog::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &MFCApplicationMainDialog::OnBnClickedButton2)
 	ON_BN_CLICKED(IDOK, &MFCApplicationMainDialog::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON3, &MFCApplicationMainDialog::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -75,4 +76,12 @@ void MFCApplicationMainDialog::OnBnClickedOk()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	CDialogEx::OnOK();
+}
+
+
+void MFCApplicationMainDialog::OnBnClickedButton3()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	AimTracking dlg;
+	dlg.DoModal();
 }

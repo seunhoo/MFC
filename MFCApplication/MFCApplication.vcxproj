@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AimTracking.h" />
     <ClInclude Include="AutoClicker.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCApplication.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AimTracking.cpp" />
     <ClCompile Include="AutoClicker.cpp" />
     <ClCompile Include="MFCApplication.cpp" />
     <ClCompile Include="DrawingLotsDlg.cpp" />
