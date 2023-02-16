@@ -52,8 +52,10 @@ END_MESSAGE_MAP()
 
 CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCAPPLICATION_DIALOG, pParent)
-	, m_Name(_T(""))
-	, m_Result(_T(""))
+	, iPersonCount(0)
+	, iMaxCount(0)
+	, iCount(0)
+	, sName(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -61,15 +63,22 @@ CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 void CMFCApplicationDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT1, m_Name);
-	DDX_Text(pDX, IDC_EDIT2, m_Result);
+
+	DDX_Text(pDX, IDC_EDIT1, iPersonCount);
+	DDX_Text(pDX, IDC_EDIT2, sName);
+	DDX_Control(pDX, IDC_LIST5, cListName);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+
+	ON_BN_CLICKED(IDOK, &CMFCApplicationDlg::OnBnClickedOk)
+	ON_EN_CHANGE(IDC_EDIT1, &CMFCApplicationDlg::OnEnChangeEdit1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplicationDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplicationDlg::OnBnClickedButton3)
+	ON_LBN_SELCHANGE(IDC_LIST5, &CMFCApplicationDlg::OnLbnSelchangeList5)
 END_MESSAGE_MAP()
 
 
@@ -163,12 +172,47 @@ HCURSOR CMFCApplicationDlg::OnQueryDragIcon()
 }
 
 
+void CMFCApplicationDlg::OnBnClickedOk()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CDialogEx::OnOK();
+}
+
+
+void CMFCApplicationDlg::OnEnChangeEdit1()
+{
+	// TODO:  RICHEDIT 컨트롤인 경우, 이 컨트롤은
+	// CDialogEx::OnInitDialog() 함수를 재지정 
+	//하고 마스크에 OR 연산하여 설정된 ENM_CHANGE 플래그를 지정하여 CRichEditCtrl().SetEventMask()를 호출하지 않으면
+	// 이 알림 메시지를 보내지 않습니다.
+
+	// TODO:  여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
 
 void CMFCApplicationDlg::OnBnClickedButton2()
 {
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	iMaxCount = iPersonCount;
+}
+
+
+void CMFCApplicationDlg::OnBnClickedButton3()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	UpdateData(TRUE);
 
-	m_Result = m_Name;
+	if (iMaxCount >= iCount)
+	{
+		cListName.AddString(sName);
+		iCount++;
+	}
+
 
 	UpdateData(FALSE);
+}
+
+void CMFCApplicationDlg::OnLbnSelchangeList5()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

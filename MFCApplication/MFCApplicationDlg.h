@@ -32,7 +32,16 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
+
+	afx_msg void OnBnClickedOk();
+	afx_msg void OnEnChangeEdit1();
+	int iPersonCount;
+	int iCount;
+	int iMaxCount;
 	afx_msg void OnBnClickedButton2();
-	CString m_Name;
-	CString m_Result;
+	CString sName;
+	afx_msg void OnBnClickedButton3();
+
+	afx_msg void OnLbnSelchangeList5();
+	CListBox cListName;
 };
