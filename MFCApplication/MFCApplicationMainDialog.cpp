@@ -7,6 +7,7 @@
 #include "MFCApplicationMainDialog.h"
 
 #include "DrawingLotsDlg.h"
+#include "AutoClicker.h"
 
 
 // MFCApplicationMainDialog 대화 상자
@@ -31,6 +32,8 @@ void MFCApplicationMainDialog::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(MFCApplicationMainDialog, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &MFCApplicationMainDialog::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &MFCApplicationMainDialog::OnBnClickedButton2)
+	ON_BN_CLICKED(IDOK, &MFCApplicationMainDialog::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -58,4 +61,18 @@ BOOL MFCApplicationMainDialog::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
+}
+
+
+void MFCApplicationMainDialog::OnBnClickedButton2()
+{
+	AutoClicker dlg;
+	dlg.DoModal();
+}
+
+
+void MFCApplicationMainDialog::OnBnClickedOk()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CDialogEx::OnOK();
 }

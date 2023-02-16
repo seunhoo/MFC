@@ -34,20 +34,20 @@ protected:
 public:
 
 	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedCancel();
 	afx_msg void OnEnChangeEdit1();
 	int iPersonCount;
 	int iCount;
 	int iMaxCount;
-	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton_SetPersonNum();
 	CString sName;
-	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton_AddPersonName();
 
 	afx_msg void OnLbnSelchangeList5();
 	CListBox cListName;
-	afx_msg void OnBnClickedButton1();
-	afx_msg void OnBnClickedCancel();
+	afx_msg void OnBnClickedButton_GetPersonGacha();
 	afx_msg void OnEnChangeEdit3();
-	afx_msg void OnBnClickedButton4();
+	afx_msg void OnBnClickedButton_SetReset();
 	afx_msg void OnEnChangeEdit2();
 	CString sResultName;
 };

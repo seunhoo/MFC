@@ -78,13 +78,13 @@ BEGIN_MESSAGE_MAP(DrawingLotsDlg, CDialogEx)
 
 	ON_BN_CLICKED(IDOK, &DrawingLotsDlg::OnBnClickedOk)
 	ON_EN_CHANGE(IDC_EDIT1, &DrawingLotsDlg::OnEnChangeEdit1)
-	ON_BN_CLICKED(IDC_BUTTON2, &DrawingLotsDlg::OnBnClickedButton2)
-	ON_BN_CLICKED(IDC_BUTTON3, &DrawingLotsDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON2, &DrawingLotsDlg::OnBnClickedButton_SetPersonNum)
+	ON_BN_CLICKED(IDC_BUTTON3, &DrawingLotsDlg::OnBnClickedButton_AddPersonName)
 	ON_LBN_SELCHANGE(IDC_LIST5, &DrawingLotsDlg::OnLbnSelchangeList5)
-	ON_BN_CLICKED(IDC_BUTTON1, &DrawingLotsDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON1, &DrawingLotsDlg::OnBnClickedButton_GetPersonGacha)
 	ON_BN_CLICKED(IDCANCEL, &DrawingLotsDlg::OnBnClickedCancel)
 	ON_EN_CHANGE(IDC_EDIT3, &DrawingLotsDlg::OnEnChangeEdit3)
-	ON_BN_CLICKED(IDC_BUTTON4, &DrawingLotsDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON4, &DrawingLotsDlg::OnBnClickedButton_SetReset)
 	ON_EN_CHANGE(IDC_EDIT2, &DrawingLotsDlg::OnEnChangeEdit2)
 END_MESSAGE_MAP()
 
@@ -198,7 +198,7 @@ void DrawingLotsDlg::OnEnChangeEdit1()
 }
 
 
-void DrawingLotsDlg::OnBnClickedButton2()
+void DrawingLotsDlg::OnBnClickedButton_SetPersonNum()
 {
 	UpdateData(TRUE);
 	// 최대 사람 수 정하기
@@ -208,7 +208,7 @@ void DrawingLotsDlg::OnBnClickedButton2()
 }
 
 
-void DrawingLotsDlg::OnBnClickedButton3()
+void DrawingLotsDlg::OnBnClickedButton_AddPersonName()
 {
 	// 사람 이름 추가 
 
@@ -226,7 +226,7 @@ void DrawingLotsDlg::OnLbnSelchangeList5()
 }
 
 
-void DrawingLotsDlg::OnBnClickedButton1()
+void DrawingLotsDlg::OnBnClickedButton_GetPersonGacha()
 {
 	// 뽑기
 	UpdateData(TRUE);
@@ -260,7 +260,7 @@ void DrawingLotsDlg::OnEnChangeEdit3()
 }
 
 
-void DrawingLotsDlg::OnBnClickedButton4()
+void DrawingLotsDlg::OnBnClickedButton_SetReset()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 

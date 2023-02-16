@@ -36,6 +36,9 @@
     <ClInclude Include="MFCApplicationMainDialog.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="AutoClicker.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCApplication.cpp">
@@ -48,6 +51,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MFCApplicationMainDialog.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoClicker.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
