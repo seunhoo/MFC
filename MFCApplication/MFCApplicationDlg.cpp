@@ -56,6 +56,7 @@ CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 	, iMaxCount(0)
 	, iCount(0)
 	, sName(_T(""))
+	, sResultName(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -67,6 +68,7 @@ void CMFCApplicationDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, iPersonCount);
 	DDX_Text(pDX, IDC_EDIT2, sName);
 	DDX_Control(pDX, IDC_LIST5, cListName);
+	DDX_Text(pDX, IDC_EDIT3, sResultName);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
@@ -79,6 +81,11 @@ BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplicationDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplicationDlg::OnBnClickedButton3)
 	ON_LBN_SELCHANGE(IDC_LIST5, &CMFCApplicationDlg::OnLbnSelchangeList5)
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplicationDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDCANCEL, &CMFCApplicationDlg::OnBnClickedCancel)
+	ON_EN_CHANGE(IDC_EDIT3, &CMFCApplicationDlg::OnEnChangeEdit3)
+	ON_BN_CLICKED(IDC_BUTTON4, &CMFCApplicationDlg::OnBnClickedButton4)
+	ON_EN_CHANGE(IDC_EDIT2, &CMFCApplicationDlg::OnEnChangeEdit2)
 END_MESSAGE_MAP()
 
 
@@ -93,6 +100,7 @@ BOOL CMFCApplicationDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// 시스템 메뉴에 "정보..." 메뉴 항목을 추가합니다.
+
 
 	// IDM_ABOUTBOX는 시스템 명령 범위에 있어야 합니다.
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
@@ -174,14 +182,14 @@ HCURSOR CMFCApplicationDlg::OnQueryDragIcon()
 
 void CMFCApplicationDlg::OnBnClickedOk()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	// 확인 버튼
 	CDialogEx::OnOK();
 }
 
 
 void CMFCApplicationDlg::OnEnChangeEdit1()
 {
-	// TODO:  RICHEDIT 컨트롤인 경우, 이 컨트롤은
+	// TODO:  RICHEDIT 컨트롤인 경우, 이 컨트롤은 
 	// CDialogEx::OnInitDialog() 함수를 재지정 
 	//하고 마스크에 OR 연산하여 설정된 ENM_CHANGE 플래그를 지정하여 CRichEditCtrl().SetEventMask()를 호출하지 않으면
 	// 이 알림 메시지를 보내지 않습니다.
@@ -192,27 +200,77 @@ void CMFCApplicationDlg::OnEnChangeEdit1()
 
 void CMFCApplicationDlg::OnBnClickedButton2()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	// 최대 사람 수 정하기
 	iMaxCount = iPersonCount;
+
+	UpdateData(FALSE);
 }
 
 
 void CMFCApplicationDlg::OnBnClickedButton3()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	UpdateData(TRUE);
+	// 사람 이름 추가 
 
-	if (iMaxCount >= iCount)
+	UpdateData(TRUE);
+	if (iCount < iMaxCount)
 	{
 		cListName.AddString(sName);
 		iCount++;
 	}
-
-
 	UpdateData(FALSE);
 }
 
 void CMFCApplicationDlg::OnLbnSelchangeList5()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
+
+
+void CMFCApplicationDlg::OnBnClickedButton1()
+{
+	// 뽑기
+	UpdateData(TRUE);
+	srand((unsigned int)time(nullptr));
+	int index = rand() % iCount;
+	CString str;
+	cListName.GetText(index, str);
+	sResultName = str;
+	UpdateData(FALSE);
+
+}
+
+void CMFCApplicationDlg::OnEnChangeEdit2()
+{
+	// 이름 입력
+
+}
+
+
+void CMFCApplicationDlg::OnBnClickedCancel()
+{
+	// 취소
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CDialogEx::OnCancel();
+}
+
+
+void CMFCApplicationDlg::OnEnChangeEdit3()
+{
+
+}
+
+
+void CMFCApplicationDlg::OnBnClickedButton4()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+
+	iCount = 0;
+	iPersonCount = 0;
+	sName = "";
+	sResultName = "";
+	cListName.ResetContent();
+
+	UpdateData(FALSE);
+
+}
+
