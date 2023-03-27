@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="AimTracking.h" />
     <ClInclude Include="AutoClicker.h" />
+    <ClInclude Include="DrawingShapes.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCApplication.h" />
     <ClInclude Include="DrawingLotsDlg.h" />
@@ -196,6 +197,7 @@
   <ItemGroup>
     <ClCompile Include="AimTracking.cpp" />
     <ClCompile Include="AutoClicker.cpp" />
+    <ClCompile Include="DrawingShapes.cpp" />
     <ClCompile Include="MFCApplication.cpp" />
     <ClCompile Include="DrawingLotsDlg.cpp" />
     <ClCompile Include="MFCApplicationMainDialog.cpp" />

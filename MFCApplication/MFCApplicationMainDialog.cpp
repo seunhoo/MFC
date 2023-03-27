@@ -7,6 +7,7 @@
 #include "MFCApplicationMainDialog.h"
 
 #include "DrawingLotsDlg.h"
+#include "DrawingShapes.h"
 #include "AutoClicker.h"
 #include "AimTracking.h"
 
@@ -35,6 +36,7 @@ BEGIN_MESSAGE_MAP(MFCApplicationMainDialog, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &MFCApplicationMainDialog::OnBnClickedButton2)
 	ON_BN_CLICKED(IDOK, &MFCApplicationMainDialog::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON3, &MFCApplicationMainDialog::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON7, &MFCApplicationMainDialog::OnBnClickedButton7)
 END_MESSAGE_MAP()
 
 
@@ -57,8 +59,6 @@ BOOL MFCApplicationMainDialog::OnInitDialog()
 	int x = GetSystemMetrics(SM_CXSCREEN);
 	int y = GetSystemMetrics(SM_CYSCREEN);
 	this->MoveWindow(x / 4, y / 4, x / 2, y / 2);
-
-
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
@@ -83,5 +83,12 @@ void MFCApplicationMainDialog::OnBnClickedButton3()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	AimTracking dlg;
+	dlg.DoModal();
+}
+
+void MFCApplicationMainDialog::OnBnClickedButton7()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	DrawingShapes dlg;
 	dlg.DoModal();
 }
